@@ -63,5 +63,32 @@ namespace X_Forms
             //Änderung einer Property des BindingContexts des StackLayouts (INotifyPropertyChanged informiert GUI über Veränderung (vgl. Person.cs))
             (Stl_DataBinding.BindingContext as Person).Nachname = "Müller";
         }
+
+        private void Btn_NavigationPush_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Layouts.GridLayoutBsp());
+        }
+
+        private void Btn_NavigationPushModal_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new Layouts.AbsoluteLayoutBsp());
+        }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            Personenliste.Clear();
+        }
+
+        private void MenuItem_Clicked(object sender, EventArgs e)
+        {
+            //Personenliste.Remove(LstV_Namen.SelectedItem as Person);
+
+            Personenliste.Remove((sender as MenuItem).CommandParameter as Person);
+        }
+
+        private void Btn_Tabbed_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new NavigationBsps.TabbedPageBsp());
+        }
     }
 }

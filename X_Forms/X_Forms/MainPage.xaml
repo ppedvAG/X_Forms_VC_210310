@@ -6,7 +6,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:X_Forms"
-             x:Class="X_Forms.MainPage">
+             x:Class="X_Forms.MainPage"
+             Title="MAIN">
 
     <!--Jeder Container hat eine Resource-Property, in welcher Ressourcen (Objekte, Styles, Converter, ...) für diesen 
     Container bereit gestellt werden können.-->
@@ -148,12 +149,31 @@
                             <Label Text="{Binding Vorname}"/>
                             <Label Text="{Binding Nachname}"/>
                         </StackLayout>
+
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Delete" Clicked="MenuItem_Clicked" CommandParameter="{Binding}"/>
+                        </ViewCell.ContextActions>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Grid"
+                    x:Name="Btn_NavigationPush"
+                    Clicked="Btn_NavigationPush_Clicked"/>
+            <Button Text="Absolute"
+                    x:Name="Btn_NavigationPushModal"
+                    Clicked="Btn_NavigationPushModal_Clicked"/>
+            <Button Text="Tabbed"
+                    x:Name="Btn_Tabbed"
+                    Clicked="Btn_Tabbed_Clicked"/>
+        </StackLayout>
 
     </StackLayout>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Clear List" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
 
 </ContentPage>

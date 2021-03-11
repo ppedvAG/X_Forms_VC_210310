@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="X_Forms.Layouts.AbsoluteLayoutBsp">
+             x:Class="X_Forms.Layouts.AbsoluteLayoutBsp"
+             Title="AbsoluteBsp">
 
     <!--In einem AbsoluteLayout ist jedem Element eine absolute Position zugeordnet-->
     <!--Diese wird durch die Property LayouBounds defniert. Die vier Zahlen repräsentieren X-Position, Y-Position, Breite, Höhe-->

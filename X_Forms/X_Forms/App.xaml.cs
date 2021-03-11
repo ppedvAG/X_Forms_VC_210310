@@ -10,7 +10,11 @@ namespace X_Forms
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            //MainPage = new MainPage();
+
+            //MainPage = new NavigationPage(new MainPage());
+
+            MainPage = new NavigationBsps.MasterDetail.MDP();
         }
 
         protected override void OnStart()
