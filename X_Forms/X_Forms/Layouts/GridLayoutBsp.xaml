@@ -2,8 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="X_Forms.Layouts.GridLayoutBsp"
-             Title="GridBsp"
-             IconImageSource="test.png">
+             Title="Grid">
 
     <Grid>
         <!--In einem Grid können Anzahl der Spalten und Zeilen sowie deren Breite/Höhe definiert werden-->

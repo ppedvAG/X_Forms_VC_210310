@@ -24,6 +24,9 @@ namespace X_Forms
             //Initialisierung der UI (Xaml-Datei). Sollte immer erste Aktion des Konstruktors sein
             InitializeComponent();
 
+            //Setzen eines Icons, welches in der Navigationsleiste (statt eines Titels) angezeigt wird
+            NavigationPage.SetTitleIconImageSource(this, ImageSource.FromFile("test.png"));
+
             //Neuzuweisung einer UI-Property über die x:Name-Property des Steuerelements
             Lbl_Main.Text = "Neuer String";
 
@@ -66,11 +69,13 @@ namespace X_Forms
 
         private void Btn_NavigationPush_Clicked(object sender, EventArgs e)
         {
+            //Aufruf einer neuen Seite innerhalb der aktuellen NavigationPage 
             Navigation.PushAsync(new Layouts.GridLayoutBsp());
         }
 
         private void Btn_NavigationPushModal_Clicked(object sender, EventArgs e)
         {
+            //Aufruf einer neuen Seite innerhalb der aktuellen NavigationPage, welche aber keinen 'Zurück'-Button anzeigt
             Navigation.PushModalAsync(new Layouts.AbsoluteLayoutBsp());
         }
 
@@ -79,11 +84,18 @@ namespace X_Forms
             Personenliste.Clear();
         }
 
-        private void MenuItem_Clicked(object sender, EventArgs e)
+        private async void MenuItem_Clicked(object sender, EventArgs e)
         {
-            //Personenliste.Remove(LstV_Namen.SelectedItem as Person);
+            //Anzeige einer 'MessageBox' und Abfrage der User-Antwort
+            bool result = await DisplayAlert("Löschung", "Soll diese Person wirklich gelöscht werden?", "Ja", "Nein");
 
-            Personenliste.Remove((sender as MenuItem).CommandParameter as Person);
+            if (result)
+            {
+                //Löschen eines Listeneintrags
+                Person person = (sender as MenuItem).CommandParameter as Person;
+
+                Personenliste.Remove(person);
+            }
         }
 
         private void Btn_Tabbed_Clicked(object sender, EventArgs e)

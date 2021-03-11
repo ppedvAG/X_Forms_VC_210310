@@ -1,4 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Mittels der Tabbed-Navigation kann der User sowohl per Links-Rechts-Swipe, als auch per angezeigter Registerkarten
+    zwischen den ContentPages wechseln-->
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="X_Forms.NavigationBsps.TabbedPageBsp"
@@ -13,7 +15,7 @@
     </ContentPage>
 
     <uebungen:U_AbsoluteL Title="Absolute"/>
-    <uebungen:U_GridL Title="Grid"/>
+    <uebungen:U_GridL Title="Grid" IconImageSource="test.png"/>
     <uebungen:U_RelativeL Title="Relative"/>
     <uebungen:U_StackL Title="Stack"/>
     <uebungen:U_StackL Title="Stack"/>

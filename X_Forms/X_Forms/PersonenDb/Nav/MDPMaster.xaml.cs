@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace X_Forms.NavigationBsps.MasterDetail
+namespace X_Forms.PersonenDb.Nav
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MDPMaster : ContentPage
@@ -33,10 +33,8 @@ namespace X_Forms.NavigationBsps.MasterDetail
             {
                 MenuItems = new ObservableCollection<MDPMasterMenuItem>(new[]
                 {
-                    new MDPMasterMenuItem { Id = 0, Title = "MainPage", TargetType=typeof(MainPage) },
-                    new MDPMasterMenuItem { Id = 1, Title = "AbsoluteLayout", TargetType=typeof(Layouts.AbsoluteLayoutBsp) },
-                    new MDPMasterMenuItem { Id = 2, Title = "TabbedPage", TargetType=typeof(NavigationBsps.TabbedPageBsp) },
-                    new MDPMasterMenuItem { Id = 3, Title = "PersonenDB", TargetType=typeof(PersonenDb.Nav.MDP) },
+                     new MDPMasterMenuItem { Id = 0, Title = "Add new person", TargetType=typeof(Pages.Pg_Add) },
+                     new MDPMasterMenuItem { Id = 1, Title = "List" , TargetType=typeof(Pages.Pg_List)}
                 });
             }
 
