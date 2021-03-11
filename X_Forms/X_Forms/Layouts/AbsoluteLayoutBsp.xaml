@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="X_Forms.Layouts.AbsoluteLayoutBsp">
+
+    <!--In einem AbsoluteLayout ist jedem Element eine absolute Position zugeordnet-->
+    <!--Diese wird durch die Property LayouBounds defniert. Die vier Zahlen repräsentieren X-Position, Y-Position, Breite, Höhe-->
+    <!--Die Property LayoutFlags definiert, welche der vier Zahlen in relativen Werten angegeben sind, anstatt in standartmäßigen
+            absoluten Werten-->
+    <AbsoluteLayout>
+
+        <BoxView Color="Green"
+                 AbsoluteLayout.LayoutFlags="None"
+                 AbsoluteLayout.LayoutBounds="30, 200, 200, 100"/>
+
+        <BoxView Color="Blue"
+                 AbsoluteLayout.LayoutFlags="All"
+                 AbsoluteLayout.LayoutBounds="0.5,0.5,0.1,0.2"/>
+
+        <BoxView Color="Yellow"
+                 AbsoluteLayout.LayoutFlags="SizeProportional"
+                 AbsoluteLayout.LayoutBounds="10,50,0.25,0.8"/>
+
+    </AbsoluteLayout>
+
+</ContentPage>
