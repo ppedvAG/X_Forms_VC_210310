@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--vgl. MVVMBsp/View-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="X_Forms.Uebungen.GoogleBooks.View.MainView"
+             xmlns:vm="clr-namespace:X_Forms.Uebungen.GoogleBooks.ViewModel"
+             xmlns:conv="clr-namespace:X_Forms.Uebungen.GoogleBooks.Converter">
+
+    <!--Zuweisung des ViewModels-->
+    <ContentPage.BindingContext>
+        <vm:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <conv:UrlToImageSourceConverter x:Key="uri2imagesource"/>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="5"
+                 Spacing="10"
+                 HorizontalOptions="FillAndExpand"
+                 VerticalOptions="FillAndExpand">
+
+        <SearchBar Text="{Binding SearchString}" Placeholder="search..." SearchCommand="{Binding SearchCommand}"/>
+
+        <ListView x:Name="LstV_Books"
+                  ItemsSource="{Binding BookList}"
+                  IsRefreshing="{Binding IsRefreshing}"
+                  RefreshCommand="{Binding SearchCommand}"
+                  IsPullToRefreshEnabled="True"
+                  ItemSelected="ListView_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell
+                        Text="{Binding VolumeInfo.Title}"
+                        Detail="{Binding VolumeInfo.Description}"
+                        ImageSource="{Binding VolumeInfo.ImageLinks.SmallThumbnail, Converter={StaticResource uri2imagesource}}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Image IsVisible="false" x:Name="Img_Test"/>
+    </StackLayout>
+
+</ContentPage>

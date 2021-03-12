@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinFormsTest.Uebungen.BankingApp_MVVM.View.LoginView"
+             xmlns:vm="clr-namespace:XamarinFormsTest.Uebungen.BankingApp_MVVM.ViewModel"
+             Padding="30"
+             BackgroundColor="SkyBlue"
+             x:Name="Pg_Main">
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel ContextPage="{x:Reference Pg_Main}"/>
+    </ContentPage.BindingContext>
+    <StackLayout>
+        <Label Text="Login - BankingApp" 
+           HorizontalOptions="Center"
+           FontSize="30" FontAttributes="Bold" />
+        <Entry Text="{Binding Fullname}" Placeholder="Fullname"/>
+        <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True"/>
+        <Button Text="Login" Command="{Binding LoginCmd}"/>
+        <Button Text="Register" Command="{Binding RegisterOpenCmd}"/>
+    </StackLayout>
+</ContentPage>

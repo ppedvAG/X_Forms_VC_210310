@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace X_Forms
@@ -21,6 +22,9 @@ namespace X_Forms
         //Konstruktor
         public MainPage()
         {
+            //Setzten der Ressourcensprache -> Bestimmt, welche resx-Bibliothek für die Lokalisierung verwendet wird
+            Properties.Resources.Culture = new System.Globalization.CultureInfo("de");
+
             //Initialisierung der UI (Xaml-Datei). Sollte immer erste Aktion des Konstruktors sein
             InitializeComponent();
 
@@ -37,6 +41,9 @@ namespace X_Forms
             //Durch Setzen des BindingContextes nehmen Kurzbindungen aus dem XAML-Code automatisch Bezug auf die Properties
             //des im BindingContext gesetzten Objekts
             this.BindingContext = this;
+
+            //Zugriff auf Xamarin.Essentials.Battery zur Anzeige des Batteriestandes (benötigt BatteryState-Permission)
+            Lbl_Battery.Text = Battery.State.ToString() + " | Level: " + Battery.ChargeLevel * 100 + "%";
         }
 
         //EventHandler
@@ -101,6 +108,26 @@ namespace X_Forms
         private void Btn_Tabbed_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new NavigationBsps.TabbedPageBsp());
+        }
+
+        //Bsp für Verwendung des MessagingCenters
+        private void Btn_MC_Clicked(object sender, EventArgs e)
+        {
+            //Instanzieren des Empängerobjekts
+            Page page = new Pg_Subscriber();
+
+            //Senden der Nachricht mit Angabe des Senders, des Titels und des Inhalts
+            MessagingCenter.Send(this, "Gesendeter Text", Pkr_Monkeys.SelectedItem.ToString());
+
+            //Öffnen der Bsp-Seite
+            Navigation.PushAsync(page);
+        }
+
+        private async void Btn_YouTube_Clicked(object sender, EventArgs e)
+        {
+            //Öffnen der Youtube-App über die Xamarin-Essentials mit Übergabe des Package-Namens
+            if (await Launcher.CanOpenAsync("vnd.youtube://"))
+                await Launcher.OpenAsync("vnd.youtube://rLKnqR9Oqh8");
         }
     }
 }

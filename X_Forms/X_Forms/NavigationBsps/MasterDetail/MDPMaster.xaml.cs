@@ -37,6 +37,9 @@ namespace X_Forms.NavigationBsps.MasterDetail
                     new MDPMasterMenuItem { Id = 1, Title = "AbsoluteLayout", TargetType=typeof(Layouts.AbsoluteLayoutBsp) },
                     new MDPMasterMenuItem { Id = 2, Title = "TabbedPage", TargetType=typeof(NavigationBsps.TabbedPageBsp) },
                     new MDPMasterMenuItem { Id = 3, Title = "PersonenDB", TargetType=typeof(PersonenDb.Nav.MDP) },
+                    new MDPMasterMenuItem { Id = 4, Title = "MVVMBsp", TargetType=typeof(MVVMBsp.View.MainView) },
+                    new MDPMasterMenuItem { Id = 5, Title = "GoogleBooks", TargetType=typeof(Uebungen.GoogleBooks.View.MainView) },
+                    new MDPMasterMenuItem { Id = 6, Title = "BankingApp", TargetType=typeof(XamarinFormsTest.Uebungen.BankingApp_MVVM.View.LoginView) },
                 });
             }
 

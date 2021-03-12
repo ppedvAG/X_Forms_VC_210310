@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XamarinFormsTest.Uebungen.BankingApp_MVVM.View.RegisterView"
+             xmlns:vm="clr-namespace:XamarinFormsTest.Uebungen.BankingApp_MVVM.ViewModel"
+             x:Name="Pg_Register">
+
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel ContextPage="{x:Reference Pg_Register}"/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Register"
+                HorizontalOptions="Center" 
+                FontSize="30" FontAttributes="Bold"/>
+            <Entry Text="{Binding Fullname}" Placeholder="Fullname"/>
+            <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True"/>
+            <Button Text="Register" Command="{Binding RegisterCmd}"/>
+            <Button Text="Back" Command="{Binding RegisterCloseCmd}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

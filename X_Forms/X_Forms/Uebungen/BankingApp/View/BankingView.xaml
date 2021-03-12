@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:XamarinFormsTest.Uebungen.BankingApp_MVVM.ViewModel"
+             mc:Ignorable="d"
+             x:Class="XamarinFormsTest.Uebungen.BankingApp_MVVM.View.BankingView"
+             Title="Meine Konten"
+             x:Name="BankingPage">
+
+    <ContentPage.BindingContext>
+        <vm:BankingViewModel ContextPage="{x:Reference BankingPage}" />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding AccountList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Label Text="{Binding AccountNumber}" Grid.Column="0"/>
+                                <Label Text="{Binding AccountType}" Grid.Column="1"/>
+                                <Label Text="{Binding Balance}" Grid.Column="2"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

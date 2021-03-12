@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:XamarinFormsTest.Uebungen.BankingApp_MVVM.ViewModel"
+             mc:Ignorable="d"
+             x:Class="XamarinFormsTest.Uebungen.BankingApp_MVVM.View.DepositWithdrawView"
+             x:Name="Pg_DepositWithdraw">
+    <ContentPage.BindingContext>
+        <vm:BankingViewModel ContextPage="{x:Reference Pg_DepositWithdraw}"/>
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Picker ItemsSource="{Binding AccountList}" SelectedItem="{Binding SelectedAccount}"/>
+        <Entry Text="{Binding Amount}" Placeholder="Amount"/>
+        <Button Text="Withdraw" Command="{Binding WithdrawMoneyCmd}"/>
+        <Button Text="Deposit" Command="{Binding DepositMoneyCmd}"/>
+    </StackLayout>
+</ContentPage>
