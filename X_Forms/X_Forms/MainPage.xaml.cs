@@ -49,7 +49,7 @@ namespace X_Forms
         //EventHandler
         private void Btn_KlickMich_Clicked(object sender, EventArgs e)
         {
-            //Neuzuweisung der Textproperty des Labeld mit dem Ausgewählten Element des Pickers
+            //Neuzuweisung der Textproperty des Labels mit dem Ausgewählten Element des Pickers
             Lbl_Main.Text = Pkr_Monkeys.SelectedItem.ToString();
 
             //Neuzuweisung einer Property des Eventauslösenden Steuerelements
@@ -66,6 +66,8 @@ namespace X_Forms
                 Personenliste.Add(new Person() { Vorname = Ent_Vorname.Text, Nachname = Ent_Nachname.Text });
             else
                 await DisplayAlert("NEIN", "Schade auch", "Ok");
+
+            await Navigation.PushAsync(new NavigationBsps.Flyout.FlyoutMaster());
         }
 
         private void Btn_NameAendern_Clicked(object sender, EventArgs e)

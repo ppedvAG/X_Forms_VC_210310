@@ -44,7 +44,7 @@ namespace X_Forms
 
         protected override void OnResume()
         {
-            MainPage.DisplayAlert("Time", $"Geschlafene Zeit: {DateTime.Now.Subtract(TimeStamp).TotalSeconds}", "ok");
+            MainPage.DisplayAlert("Time", $"Geschlafene Zeit: {DateTime.Now.Subtract(Preferences.Get("timestamp", DateTime.Now)).TotalSeconds}", "ok");
         }
     }
 }
